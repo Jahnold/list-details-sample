@@ -22,12 +22,15 @@ class MainActivity: BaseActivity() {
 
         viewModel = ViewModelProviders.of(this, viewModelFactory).get(MainViewModel::class.java)
 
-        supportFragmentManager
-            .beginTransaction()
-            .apply {
-                replace(R.id.fragment_container, ListFragment())
-                commit()
-            }
+        if (savedInstanceState == null) {
+
+            supportFragmentManager
+                .beginTransaction()
+                .apply {
+                    replace(R.id.fragment_container, ListFragment())
+                    commit()
+                }
+        }
 
         subscribeToNavigationEvents()
     }
