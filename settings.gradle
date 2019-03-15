@@ -1,0 +1,6 @@
+include ':app',
+        ':base',
+
+        // FEATURES
+        ':feature-list',
+        ':feature-details'
